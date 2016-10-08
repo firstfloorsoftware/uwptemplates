@@ -33,7 +33,8 @@ namespace $safeprojectname$.Presentation
 
             // ensure viewmodel state reflects actual appearance
             var manager = AppearanceManager.GetForCurrentView();
-            this.selectedTheme = this.Themes.FirstOrDefault(t => t.Theme == manager.Theme);
+            var displayName = manager.Theme.ToString();
+            this.SelectedTheme = new DisplayableTheme(displayName, manager.Theme);
 
             if (AppearanceManager.AccentColor == null)
             {
